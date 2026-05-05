@@ -1,0 +1,218 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.zone {
+  position: relative;
+  border: 1.5px dashed var(--border-light);
+  border-radius: var(--radius-xl);
+  background: var(--surface);
+  min-height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition:
+    border-color var(--duration-normal) var(--ease-out),
+    background var(--duration-normal) var(--ease-out),
+    box-shadow var(--duration-normal) var(--ease-out);
+  overflow: hidden;
+}
+
+.zone:hover:not(.locked) {
+  border-color: var(--accent-border);
+  background: var(--surface-hover);
+}
+
+.active {
+  border-color: var(--accent) !important;
+  background: var(--accent-dim) !important;
+  box-shadow: 0 0 0 4px rgba(245, 166, 35, 0.08);
+}
+
+.reject {
+  border-color: var(--error) !important;
+  background: rgba(248, 113, 113, 0.05) !important;
+}
+
+.locked {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.hasFile {
+  border-style: solid;
+  border-color: var(--accent-border);
+  background: var(--accent-dim);
+}
+
+.inner {
+  padding: var(--space-8);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+/* Empty state */
+.iconWrap {
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-lg);
+  background: var(--surface-hover);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--duration-normal) var(--ease-out);
+  animation: float 3s ease-in-out infinite;
+}
+
+.zone:hover .iconWrap,
+.active .iconWrap {
+  background: var(--accent-dim);
+  border-color: var(--accent-border);
+  animation: none;
+}
+
+.iconDefault { color: var(--text-muted); }
+.iconActive  { color: var(--accent); }
+.iconReject  { color: var(--error); }
+
+.text { text-align: center; }
+
+.mainText {
+  font-size: 15px;
+  color: var(--text-secondary);
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.or { color: var(--text-muted); margin: 0 4px; }
+
+.browse {
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.subText {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: var(--space-1);
+}
+
+.activeText {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.rejectText {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--error);
+}
+
+.dashes {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  transition: opacity var(--duration-normal);
+}
+
+/* File preview */
+.filePreview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+  width: 100%;
+}
+
+.fileIcon {
+  position: relative;
+  width: 56px;
+  height: 56px;
+  background: var(--surface-hover);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+}
+
+.fileBadge {
+  position: absolute;
+  bottom: -4px;
+  right: -4px;
+  background: var(--accent);
+  color: var(--text-inverse);
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 500;
+  padding: 1px 4px;
+  border-radius: var(--radius-sm);
+}
+
+.fileMeta {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.fileName {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  max-width: 260px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.fileSize {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+}
+
+.fileReady {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--accent);
+  background: var(--accent-dim);
+  border: 1px solid var(--accent-border);
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  font-family: var(--font-mono);
+}
+
+/* Hint */
+.hint {
+  font-size: 12px;
+  color: var(--text-muted);
+  text-align: center;
+}
+.hint strong { color: var(--text-secondary); font-weight: 500; }
+
+/* Error */
+.error {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 13px;
+  color: var(--error);
+  padding: var(--space-2) var(--space-3);
+  background: rgba(248, 113, 113, 0.08);
+  border: 1px solid rgba(248, 113, 113, 0.2);
+  border-radius: var(--radius-md);
+}
